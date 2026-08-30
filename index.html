@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Intly Help Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    padding: 48px 16px 80px;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { width: 100%; max-width: 520px; }
+  header { text-align: center; margin-bottom: 40px; }
+  .logo-img { height: 64px; margin-bottom: 4px; }
+  .eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #8C8C8C;
+  }
+  .card {
+    border-radius: 4px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    overflow: hidden;
+  }
+  .row { border-top: 1px solid #E5E5E5; }
+  .row:first-child { border-top: none; }
+  /* Page-header style, matching the app's own headers (e.g. "WISHLIST"):
+     uppercase, light weight, wide tracking — not bold sentence case. */
+  .row-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1A1A1A;
+  }
+  .row-btn.active { color: #3D1E0F; }
+  .chev { transition: transform 320ms cubic-bezier(0.22,1,0.36,1); flex-shrink: 0; }
+  .row-btn.active .chev { transform: rotate(180deg); }
+  .panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 420ms cubic-bezier(0.22,1,0.36,1);
+  }
+  .panel.open { max-height: 3000px; }
+  .panel-inner { padding: 0 22px 28px; }
+  p.body-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #1A1A1A;
+    margin-bottom: 18px;
+  }
+  .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 4px;
+    background: #F7F7F7;
+    border: 1px solid #E5E5E5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #8C8C8C;
+    margin-top: 4px;
+  }
+  .terms-section { margin-bottom: 18px; }
+  .terms-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 6px;
+  }
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    width: 100%;
+    padding: 0 22px;
+    border-radius: 4px;
+    background: #000000;
+    text-decoration: none;
+    margin-top: 4px;
+  }
+  .contact-btn span {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+  .legal-note {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #8C8C8C;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #E5E5E5;
+  }
+  footer {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    color: #8C8C8C;
+    margin-top: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo-img" src="assets/intly-logo.svg" alt="Intly" />
+    <div class="eyebrow">Help Center</div>
+  </header>
+
+  <div class="card">
+
+    <!-- GETTING STARTED -->
+    <div class="row">
+      <button class="row-btn active" onclick="toggle(this)">
+        Getting Started
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="panel open">
+        <div class="panel-inner">
+          <p class="body-text">Intly is a toolkit for collectors, curators and design lovers. Source furniture and objects across trusted design brands, save what you love to a room's Wishlist, build moodboards for inspiration, and see how a piece might actually look in your space before it arrives.</p>
+          <div class="video-placeholder">Feature walkthrough — video/gif goes here</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMS & CONDITIONS -->
+    <div class="row">
+      <button class="row-btn" onclick="toggle(this)">
+        Terms &amp; Conditions
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+
+          <div class="terms-section">
+            <h3>1. About Intly</h3>
+            <p class="body-text">Intly ("Intly", "we", "us") operates the Intly application, which lets you organise rooms, source furniture and objects from third-party retailers, save items to a Wishlist, build moodboards, track auction lots, and generate AI-assisted visualisations of how a piece might look in your space (together, the "Services"). By using Intly, you agree to be bound by these Terms.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>2. Acceptance of Terms</h3>
+            <p class="body-text">You accept these Terms by creating an account, or by using or browsing the app. If you don't agree with these Terms, please don't use Intly. We may update these Terms from time to time; continuing to use Intly after an update means you accept the changes.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>3. Registration and Eligibility</h3>
+            <p class="body-text">To use most features you'll need to register for an account, which may require your name, email address and password. You must be at least 16 years old to create an account. If you're under the age required in your jurisdiction to agree to these Terms on your own, Intly may only be used with the involvement of a parent or guardian. You agree that any information you give us is accurate and kept up to date.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>4. Your Obligations</h3>
+            <p class="body-text">You're responsible for keeping your account details secure and for anything that happens under your account. You agree not to use Intly for any unlawful purpose, to interfere with its operation, to attempt to access data that isn't yours, or to use automated tools to access the Services without our permission.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>5. Subscriptions and Payments</h3>
+            <p class="body-text">Some features are available through paid subscriptions, billed and managed through the Apple App Store. Subscriptions renew automatically unless cancelled at least 24 hours before the renewal date. Refunds are handled by Apple under their own policies, not by Intly directly.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>6. Your Content</h3>
+            <p class="body-text">Photos, room details, notes and moodboards you add remain yours. By uploading them, you grant Intly a licence to store, display and process that content as part of operating the Services — including sending images to third-party AI providers where a feature requires it (see Section 8). We don't claim ownership of what you upload, and you can delete your content, or your whole account, at any time from within the app.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>7. Third-Party Products and Services</h3>
+            <p class="body-text">Intly does not own, sell, resell, warehouse, or control any of the products shown through Sourcing Sleuth, Auction Liaison, or any linked retailer, marketplace, or platform (including Pinterest, Etsy and eBay). We only provide tools that let you search, save, and track products found elsewhere. Product listings, pricing, availability and images come from third parties and are not verified or guaranteed accurate by Intly — prices and stock can change without notice. Any purchase you make happens directly with that third party, not with Intly, and Intly is not responsible for the quality, delivery, or conduct of any retailer or seller whose products you view, save, or buy through the app.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>8. AI-Generated Content</h3>
+            <p class="body-text">The Visualiser feature uses a third-party AI service (currently Google's Gemini API) to generate an impression of how a piece might look in a photo of your space. To provide this feature, the photo you supply and any reference image you select are sent to that provider for processing, including potentially outside Australia. These generated images are illustrative only — not a guarantee of appearance, fit, scale, colour accuracy, or availability. See our Privacy Policy for more on how this data is handled.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>9. Intellectual Property</h3>
+            <p class="body-text">The Intly app, name, logo and branding belong to Intly and are protected by copyright and trademark law. Nothing in these Terms transfers any of that ownership to you, or gives you rights to use it outside of normal use of the app.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>10. General Disclaimer</h3>
+            <p class="body-text">Nothing in these Terms limits or excludes any guarantee, warranty, or right under the Australian Consumer Law (or any other law) that cannot lawfully be limited or excluded. Subject to that, and to the extent permitted by law, the Services are provided "as is" and "as available," without warranty of any kind, and Intly is not liable for indirect or consequential loss arising from your use of the app, including issues with third-party retailers, pricing accuracy, service interruptions, or AI-generated visualisations.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>11. Limitation of Liability</h3>
+            <p class="body-text">To the maximum extent permitted by law, Intly's total liability arising out of or in connection with these Terms or the Services will not exceed the amount you've paid to Intly in the 12 months before the claim arose, or AUD $100 if you haven't paid us anything.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>12. Indemnity</h3>
+            <p class="body-text">You agree to indemnify Intly and its officers, employees and contractors against any claim, loss, or expense arising from your content, your breach of these Terms, or your use of the Services — including any transaction with a third-party retailer or platform accessed through the app.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>13. Termination</h3>
+            <p class="body-text">You can close your account at any time from within the app. We may suspend or end an account that breaches these Terms, or where we're required to by law.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>14. Governing Law</h3>
+            <p class="body-text">These Terms are governed by the laws of Victoria, Australia, and any dispute will be resolved in the courts of Victoria.</p>
+          </div>
+
+          <div class="terms-section" style="margin-bottom:0">
+            <h3>15. Contact</h3>
+            <p class="body-text" style="margin-bottom:0">Questions about these Terms can be sent to getintly@gmail.com.</p>
+          </div>
+
+          <div class="legal-note">
+            This draft is modelled on real, currently operating apps in the same category, adapted for Intly's own features — it's not a substitute for professional legal advice. Worth a proper review before this is treated as final; see the note in chat for specifics.
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIVACY POLICY -->
+    <div class="row">
+      <button class="row-btn" onclick="toggle(this)">
+        Privacy Policy
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+
+          <div class="terms-section">
+            <h3>1. Our Commitment</h3>
+            <p class="body-text">Intly respects your right to privacy and is committed to safeguarding the personal information of everyone who uses the app. We handle personal information in line with the Australian Privacy Principles under the Privacy Act 1988 (Cth). This policy sets out what we collect and how we treat it.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>2. What We Collect</h3>
+            <p class="body-text">Depending on how you use Intly, we may collect: your name and email address; photos you upload of your rooms or moodboards; items you save to a Wishlist; auction lots and bid details you track; and general device and usage information (such as app version and crash logs) that helps us keep the app working properly.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>3. How We Use It</h3>
+            <p class="body-text">We use your information to provide the Services — including personalising Sourcing Sleuth results to your region, sending notifications you've opted into (like auction-day or price-drop alerts), keeping your account secure, and improving the app.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>4. AI Processing</h3>
+            <p class="body-text">If you use the Visualiser, the photo you provide and any reference image you select are sent to Google's Gemini API to generate the visualisation. This processing may take place outside Australia. We don't use your photos to train our own AI models. Whether Google uses API-submitted images to train its own models is governed by Google's own terms for the Gemini API, which we'd encourage you to review if this matters to you.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>5. Third-Party Sharing</h3>
+            <p class="body-text">If you connect a Pinterest account, we access the boards you choose to link, under Pinterest's own permissions. Sourcing Sleuth searches Etsy and eBay's public listings but doesn't share your personal information with them. Subscription payments are processed by Apple, not by Intly directly.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>6. Where Your Data Is Stored</h3>
+            <p class="body-text">Your data is stored and processed using third-party infrastructure providers, which may be located, or process data, outside Australia. We take reasonable steps to ensure these providers handle your information securely.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>7. Access, Correction and Deletion</h3>
+            <p class="body-text">You can access and correct most of your information directly in the app. You can delete your entire account and associated data at any time from Settings. To request a copy of what we hold about you, or if you believe any of it is inaccurate, email getintly@gmail.com.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>8. Security</h3>
+            <p class="body-text">We take reasonable technical and organisational steps to protect your information from misuse, loss, or unauthorised access. No method of transmission or storage is completely secure, and we can't guarantee absolute security.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>9. Complaints</h3>
+            <p class="body-text">If you have a concern about how we've handled your personal information, email getintly@gmail.com and we'll respond as soon as we can.</p>
+          </div>
+
+          <div class="terms-section" style="margin-bottom:0">
+            <h3>10. Changes to This Policy</h3>
+            <p class="body-text" style="margin-bottom:0">We may update this policy from time to time. Continuing to use Intly after a change means you accept the update.</p>
+          </div>
+
+          <div class="legal-note">
+            As with the Terms, this is a solid starting draft, not a final legal document — worth a professional review before treating it as complete, particularly the overseas data transfer and AI-processing disclosures.
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="row">
+      <button class="row-btn" onclick="toggle(this)">
+        Contact
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <p class="body-text">Something not working, or just want to say hi? We read every message.</p>
+          <a href="mailto:getintly@gmail.com" class="contact-btn"><span>Contact Support</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>© 2026 Intly</footer>
+</div>
+
+<script>
+function toggle(btn) {
+  const row = btn.closest('.row');
+  const panel = row.querySelector('.panel');
+  const wasOpen = panel.classList.contains('open');
+
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.row-btn').forEach(b => b.classList.remove('active'));
+
+  if (!wasOpen) {
+    panel.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+</script>
+</body>
+</html>
