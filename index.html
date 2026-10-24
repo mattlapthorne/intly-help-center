@@ -98,6 +98,26 @@
   .price-table td:nth-child(-n+2) { padding-right: 16px; }
   .price-table td:first-child { font-weight: 600; white-space: nowrap; }
   .price-table td:nth-child(2) { white-space: nowrap; }
+  .body-list {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #1A1A1A;
+    padding-left: 16px;
+    margin-bottom: 12px;
+  }
+  .body-list li { margin-bottom: 4px; }
+  p.effective { color: #8C8C8C; }
+  /* Provider table is too wide for a phone, so each provider stacks as its own block */
+  .provider-table, .provider-table tbody { display: block; margin-bottom: 12px; }
+  .provider-table thead { display: none; }
+  .provider-table tr { display: block; padding: 10px 0; border-bottom: 1px solid #E5E5E5; }
+  .provider-table tr:first-child { padding-top: 0; }
+  .provider-table tr:last-child { border-bottom: none; padding-bottom: 0; }
+  .provider-table td { display: block; padding: 0 !important; border: none; white-space: normal !important; }
+  .provider-table td:first-child { margin-bottom: 3px; }
+  .provider-table td:nth-child(2)::before { content: "What it does: "; color: #8C8C8C; }
+  .provider-table td:nth-child(3)::before { content: "What it receives: "; color: #8C8C8C; }
+  .panel-inner a { color: #1A1A1A; word-break: break-all; }
   .terms-section { margin-bottom: 12px; }
   .terms-section h3 {
     font-family: 'Poppins', sans-serif;
@@ -198,84 +218,103 @@
       <div class="panel">
         <div class="panel-inner">
 
+          <p class="body-text effective">Effective date: 24 October 2026</p>
+          <p class="body-text">Intly is operated by William Rose Gallery Pty. Ltd. (ABN 20 690 412 287), Victoria, Australia ("we", "us"). These Terms apply to the Intly app and its related services, including help.intly.app (the "Services").</p>
           <div class="terms-section">
-            <h3>1. About Intly</h3>
-            <p class="body-text">Intly ("Intly", "we", "us") operates the Intly application, which lets you organise rooms, source furniture and objects from third-party retailers, save items to a Wishlist, build moodboards, track auction lots, and generate AI-assisted visualisations of how a piece might look in your space (together, the "Services"). By using Intly, you agree to be bound by these Terms.</p>
-          </div>
-
-          <div class="terms-section">
-            <h3>2. Acceptance of Terms</h3>
-            <p class="body-text">You accept these Terms by creating an account, or by using or browsing the app. If you don't agree with these Terms, please don't use Intly. We may update these Terms from time to time; continuing to use Intly after an update means you accept the changes.</p>
+            <h3>1. What Intly does</h3>
+            <p class="body-text">Intly helps you organise rooms, find items from third-party retailers, save wishlists and mood boards, track auction lots, and create AI-generated visualisations of items in your own space.</p>
           </div>
 
           <div class="terms-section">
-            <h3>3. Registration and Eligibility</h3>
-            <p class="body-text">To use most features you'll need to register for an account, which may require your name, email address and password. You must be at least 16 years old to create an account. If you're under the age required in your jurisdiction to agree to these Terms on your own, Intly may only be used with the involvement of a parent or guardian. You agree that any information you give us is accurate and kept up to date.</p>
+            <h3>2. Agreeing to these Terms</h3>
+            <p class="body-text">By creating an account or using the Services you agree to these Terms. If we make a material change, we will tell you by email and on our Instagram account (@intly.app), and the new Terms apply once you keep using the Services after that notice. If you do not agree, please stop using Intly and delete your account. Apple's standard Licensed Application End User License Agreement also applies to the app: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a>.</p>
           </div>
 
           <div class="terms-section">
-            <h3>4. Your Obligations</h3>
-            <p class="body-text">You're responsible for keeping your account details secure and for anything that happens under your account. You agree not to use Intly for any unlawful purpose, to interfere with its operation, to attempt to access data that isn't yours, or to use automated tools to access the Services without our permission.</p>
+            <h3>3. Who can use Intly</h3>
+            <p class="body-text">You must be at least 16 years old to create an account or use the Services.</p>
           </div>
 
           <div class="terms-section">
-            <h3>5. Subscriptions and Payments</h3>
-            <p class="body-text">Some features are available through paid subscriptions, billed and managed through the Apple App Store. Subscriptions renew automatically unless cancelled at least 24 hours before the renewal date. Refunds are handled by Apple under their own policies, not by Intly directly.</p>
+            <h3>4. Your account</h3>
+            <p class="body-text">Give accurate details and keep your sign-in details secure. You are responsible for what happens under your account. Tell us if you think someone has accessed it without your permission. You can sign in with Apple, Google or email.</p>
           </div>
 
           <div class="terms-section">
-            <h3>6. Your Content</h3>
-            <p class="body-text">Photos, room details, notes and moodboards you add remain yours. By uploading them, you grant Intly a licence to store, display and process that content as part of operating the Services — including sending images to third-party AI providers where a feature requires it (see Section 8). We don't claim ownership of what you upload, and you can delete your content, or your whole account, at any time from within the app.</p>
+            <h3>5. Plans, payments and subscriptions</h3>
+            <ul class="body-list"><li>Free: 7 visualisers and 3 searches to get started.</li><li>Standard: AUD $5 per month, with 20 visualisers and 60 searches each month.</li><li>Pro: AUD $10 per month, with 45 visualisers and 110 searches each month.</li><li>Top-up (subscribers only): a one-off AUD $10 purchase that adds 40 visualisers and 90 searches.</li><li>Project Pack (no subscription needed): a one-off AUD $10 purchase with 40 visualisers and 90 searches, valid for 90 days.</li></ul>
+            <p class="body-text">Prices are shown in the App Store before you buy. Payment is charged to your Apple ID when you confirm the purchase. Subscriptions renew automatically for the same length and at the current price unless you cancel at least 24 hours before the end of the current period, and your account is charged for the renewal within 24 hours before that period ends. You can manage or cancel a subscription in your Apple ID account settings on your device. Cancelling stops future renewals, and you keep your plan until the end of the period you have paid for. Monthly allowances do not carry over to the next month. Top-ups are one-off purchases and their allowances do not expire.</p>
+            <p class="body-text">Because purchases are made through Apple, refund requests go to Apple, and we cannot issue refunds ourselves. If a visualiser request fails on our side, we return that allowance to you. Searches are counted when they run.</p>
+            <p class="body-text">Nothing in this clause limits your rights under the Australian Consumer Law or Apple's policies.</p>
           </div>
 
           <div class="terms-section">
-            <h3>7. Third-Party Products and Services</h3>
-            <p class="body-text">Intly does not own, sell, resell, warehouse, or control any of the products shown through Sourcing Sleuth, Auction Liaison, or any linked retailer, marketplace, or platform (including Pinterest, Etsy and eBay). We only provide tools that let you search, save, and track products found elsewhere. Product listings, pricing, availability and images come from third parties and are not verified or guaranteed accurate by Intly — prices and stock can change without notice. Any purchase you make happens directly with that third party, not with Intly, and Intly is not responsible for the quality, delivery, or conduct of any retailer or seller whose products you view, save, or buy through the app.</p>
+            <h3>6. Your content</h3>
+            <p class="body-text">You keep ownership of what you upload, such as room photos, mood board images, notes and wishlist items. You give us a non-exclusive licence to store, process, display and send your content to the providers that run the Services, only so we can provide the Services to you. This includes sending images to an AI provider to create visualisations. Only upload content you have the right to use, and do not upload unlawful content or photos showing other people without their permission. You can delete content, or your whole account, in the app.</p>
           </div>
 
           <div class="terms-section">
-            <h3>8. AI-Generated Content</h3>
-            <p class="body-text">The Visualiser feature uses a third-party AI service (currently Google's Gemini API) to generate an impression of how a piece might look in a photo of your space. To provide this feature, the photo you supply and any reference image you select are sent to that provider for processing, including potentially outside Australia. These generated images are illustrative only — not a guarantee of appearance, fit, scale, colour accuracy, or availability. See our Privacy Policy for more on how this data is handled.</p>
+            <h3>7. Third-party products and sites</h3>
+            <p class="body-text">Intly shows and links to listings from retailers, marketplaces and platforms such as Etsy, eBay and Pinterest. We do not sell those products and do not control or check listings, prices or availability. They can be out of date or wrong. Any purchase is between you and the seller, so check the seller's own page before you buy.</p>
           </div>
 
           <div class="terms-section">
-            <h3>9. Intellectual Property</h3>
-            <p class="body-text">The Intly app, name, logo and branding belong to Intly and are protected by copyright and trademark law. Nothing in these Terms transfers any of that ownership to you, or gives you rights to use it outside of normal use of the app.</p>
+            <h3>8. AI-generated content</h3>
+            <p class="body-text">The Visualiser uses third-party AI (currently Google's Gemini API) to show how an item might look in your space. Results are illustrative only. They may be inaccurate and may not match real size, colour, proportions or fit, so check measurements and details before you buy anything. Your photo and any reference image are sent to the AI provider to create the result, as explained in our Privacy Policy.</p>
           </div>
 
           <div class="terms-section">
-            <h3>10. General Disclaimer</h3>
-            <p class="body-text">Nothing in these Terms limits or excludes any guarantee, warranty, or right under the Australian Consumer Law (or any other law) that cannot lawfully be limited or excluded. Subject to that, and to the extent permitted by law, the Services are provided "as is" and "as available," without warranty of any kind, and Intly is not liable for indirect or consequential loss arising from your use of the app, including issues with third-party retailers, pricing accuracy, service interruptions, or AI-generated visualisations.</p>
+            <h3>9. Using Intly properly</h3>
+            <p class="body-text">You must not break the law; interfere with, overload or try to get around limits, security or paid allowances in the Services; use bots, scrapers or other automated tools; access other people's accounts or data; resell or share your account; or reverse engineer the app except where the law allows it.</p>
           </div>
 
           <div class="terms-section">
-            <h3>11. Limitation of Liability</h3>
-            <p class="body-text">To the maximum extent permitted by law, Intly's total liability arising out of or in connection with these Terms or the Services will not exceed the amount you've paid to Intly in the 12 months before the claim arose, or AUD $100 if you haven't paid us anything.</p>
+            <h3>10. Our intellectual property</h3>
+            <p class="body-text">We own the Intly app, name, logo and branding. We give you a personal, non-exclusive, non-transferable right to use the app for your own non-commercial use while you follow these Terms.</p>
           </div>
 
           <div class="terms-section">
-            <h3>12. Indemnity</h3>
-            <p class="body-text">You agree to indemnify Intly and its officers, employees and contractors against any claim, loss, or expense arising from your content, your breach of these Terms, or your use of the Services — including any transaction with a third-party retailer or platform accessed through the app.</p>
+            <h3>11. Availability and best-effort features</h3>
+            <p class="body-text">The Services are provided "as is" and "as available", and may change or be interrupted. Features such as auction tracking, price checks and alerts are best effort. They rely on information from third parties that can be late, wrong or missing, so do not rely on them as your only way to follow an auction or a price. Check the seller's listing before you bid or buy.</p>
           </div>
 
           <div class="terms-section">
-            <h3>13. Termination</h3>
-            <p class="body-text">You can close your account at any time from within the app. We may suspend or end an account that breaches these Terms, or where we're required to by law.</p>
+            <h3>12. Consumer law</h3>
+            <p class="body-text">Nothing in these Terms excludes, restricts or changes any right or remedy you have under the Australian Consumer Law or any other law that cannot be excluded. Subject to that, and as far as the law allows, we exclude all other warranties.</p>
           </div>
 
           <div class="terms-section">
-            <h3>14. Governing Law</h3>
-            <p class="body-text">These Terms are governed by the laws of Victoria, Australia, and any dispute will be resolved in the courts of Victoria.</p>
+            <h3>13. Limits on our liability</h3>
+            <p class="body-text">To the maximum extent permitted by law:</p>
+            <ul class="body-list"><li>we are not liable for indirect or consequential loss, or for loss of profit, opportunity or data;</li><li>we are not liable for loss caused by third-party sellers, marketplaces or platforms, by inaccurate AI output, or by events outside our reasonable control;</li><li>our total liability to you for all claims relating to the Services is limited to the greater of the amount you paid for the Services in the 12 months before the claim and AUD $100.</li></ul>
+            <p class="body-text">This clause does not limit any liability that cannot be limited by law, including liability for fraud or wilful misconduct and any consumer guarantee under the Australian Consumer Law that cannot be limited.</p>
           </div>
 
-          <div class="terms-section" style="margin-bottom:0">
-            <h3>15. Contact</h3>
-            <p class="body-text" style="margin-bottom:0">Questions about these Terms can be sent to getintly@gmail.com.</p>
+          <div class="terms-section">
+            <h3>14. Content we can remove</h3>
+            <p class="body-text">We may remove content, and suspend or end accounts, that breach clause 9 or the law or that infringe someone else's rights. We will try to tell you when we do, unless the law or the circumstances stop us.</p>
           </div>
 
-          <div class="legal-note">
-            This draft is modelled on real, currently operating apps in the same category, adapted for Intly's own features — it's not a substitute for professional legal advice. Worth a proper review before this is treated as final; see the note in chat for specifics.
+          <div class="terms-section">
+            <h3>15. Ending your use</h3>
+            <p class="body-text">You can stop using Intly at any time and delete your account in the app (Settings, Account Details, Delete Account). We may suspend or end your access if you breach these Terms, if the law requires it, or to protect the Services or other users. Clauses that by their nature continue after your account ends, including 10, 13 and 17, keep applying.</p>
           </div>
+
+          <div class="terms-section">
+            <h3>16. Changes to the Services and prices</h3>
+            <p class="body-text">We may change, add or remove features and plans. Subscription price changes follow Apple's rules: we will tell you and, where Apple requires it, ask you to agree before a higher price applies.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>17. Governing law</h3>
+            <p class="body-text">These Terms are governed by the laws of Victoria, Australia, and the courts of Victoria and the Commonwealth of Australia have jurisdiction. This does not take away any consumer rights you have under the law where you live that cannot be excluded.</p>
+          </div>
+
+          <div class="terms-section">
+            <h3>18. Contact</h3>
+            <p class="body-text">William Rose Gallery Pty. Ltd. (ABN 20 690 412 287), Victoria, Australia. Email: info@intly.app.</p>
+          </div>
+
 
         </div>
       </div>
@@ -290,59 +329,71 @@
       <div class="panel">
         <div class="panel-inner">
 
+          <p class="body-text effective">Effective date: 24 October 2026</p>
+          <p class="body-text">Intly is operated by William Rose Gallery Pty. Ltd. (ABN 20 690 412 287), Victoria, Australia ("we", "us"). We handle your personal information in line with the Australian Privacy Principles in the Privacy Act 1988 (Cth).</p>
           <div class="terms-section">
-            <h3>1. Our Commitment</h3>
-            <p class="body-text">Intly respects your right to privacy and is committed to safeguarding the personal information of everyone who uses the app. We handle personal information in line with the Australian Privacy Principles under the Privacy Act 1988 (Cth). This policy sets out what we collect and how we treat it.</p>
+            <h3>1. What we collect</h3>
+            <ul class="body-list"><li><strong>Account details:</strong> your name and email, and how you sign in (Apple, Google or email). If you use Sign in with Apple or Google, we receive only what they share with us, which can include a private relay email address.</li><li><strong>Your content:</strong> room photos, mood board images, notes, wishlist items (title, link, price, image), auction lots and bids you track, saved palette colours and brand preferences.</li><li><strong>Visualiser:</strong> the room photo and reference image you submit, and the images generated from them.</li><li><strong>Pinterest:</strong> if you connect it, the access we need to show the boards and pins you choose. You can disconnect it at any time.</li><li><strong>Purchases:</strong> Apple handles payment. We receive your subscription status and purchase identifiers from Apple and from RevenueCat, which manages subscriptions for us. We never receive your card details.</li><li><strong>Notifications:</strong> if you opt in, a device token so we can send price and auction alerts. The alert text can include the names of your wishlist items, and is delivered through Expo's push service and Apple.</li><li><strong>Usage and device data:</strong> app version, device type and operating system, your country, language and timezone, and records of your searches, visualiser use and price checks linked to your account, so we can apply plan limits, prevent abuse and improve the Services. We do not use a third-party analytics or crash reporting tool.</li></ul>
           </div>
 
           <div class="terms-section">
-            <h3>2. What We Collect</h3>
-            <p class="body-text">Depending on how you use Intly, we may collect: your name and email address; photos you upload of your rooms or moodboards; items you save to a Wishlist; auction lots and bid details you track; and general device and usage information (such as app version and crash logs) that helps us keep the app working properly.</p>
+            <h3>2. How we use it</h3>
+            <p class="body-text">To run the Services and keep your account working; to localise Sourcing results to your region; to check prices on your wishlist items (weekly for paid plans); to send alerts you have opted into; to enforce plan limits, stop abuse and protect our costs; to keep the Services secure; to improve them; and to meet legal obligations.</p>
           </div>
 
           <div class="terms-section">
-            <h3>3. How We Use It</h3>
-            <p class="body-text">We use your information to provide the Services — including personalising Sourcing Sleuth results to your region, sending notifications you've opted into (like auction-day or price-drop alerts), keeping your account secure, and improving the app.</p>
+            <h3>3. Who receives your information</h3>
+            <p class="body-text">We do not sell your personal information. We use these providers to run Intly, and each receives only what its job needs:</p>
+            <table class="price-table provider-table"><thead><tr><th>Provider</th><th>What it does</th><th>What it receives</th></tr></thead><tbody><tr><td>Supabase</td><td>Database, sign-in and file storage</td><td>Your account, content and photos</td></tr><tr><td>Railway</td><td>Hosts our server</td><td>Requests your app sends to our server, including content you submit for processing</td></tr><tr><td>Google (Gemini API)</td><td>Creates Visualiser images</td><td>Your room photo, reference image and request text</td></tr><tr><td>Serper</td><td>Search for Sourcing</td><td>Your search terms and your region setting</td></tr><tr><td>Etsy, eBay and retailer websites</td><td>Listings shown in Sourcing and price checks</td><td>Our server requests public pages or listings. We do not send your personal details</td></tr><tr><td>Pinterest</td><td>Your boards, if you connect</td><td>The access you approve</td></tr><tr><td>Apple</td><td>Sign in, payments and push notifications</td><td>What Apple needs to run each</td></tr><tr><td>Google (Sign in)</td><td>Sign in, if you choose it</td><td>What Google needs to sign you in</td></tr><tr><td>RevenueCat</td><td>Manages subscriptions with Apple</td><td>Your Intly account ID, purchase and receipt details, and device information</td></tr><tr><td>ScrapingBee</td><td>Fetches some product pages for price checks</td><td>The product and auction links you paste or save, including the links on your wishlist</td></tr><tr><td>Expo</td><td>Delivers app updates and push notifications</td><td>App version and device type for updates; your device token and the alert text for notifications</td></tr></tbody></table>
+            <p class="body-text">Your phone also connects directly to some sites, such as retailer pages for link previews, image hosts and a currency rate service. Like any website you visit, they can see your IP address.</p>
+            <p class="body-text">We may also share information where the law requires it, or to protect our rights, users or the Services.</p>
           </div>
 
           <div class="terms-section">
-            <h3>4. AI Processing</h3>
-            <p class="body-text">If you use the Visualiser, the photo you provide and any reference image you select are sent to Google's Gemini API to generate the visualisation. This processing may take place outside Australia. We don't use your photos to train our own AI models. Whether Google uses API-submitted images to train its own models is governed by Google's own terms for the Gemini API, which we'd encourage you to review if this matters to you.</p>
+            <h3>4. AI processing</h3>
+            <p class="body-text">When you use the Visualiser, your room photo and any reference image are sent to Google's Gemini API to create the result. We do not use your photos to train our own models. Under the paid Gemini API terms we use, Google does not use your prompts or responses to improve its products, but it may keep logs for a limited time to detect abuse and meet legal obligations.</p>
           </div>
 
           <div class="terms-section">
-            <h3>5. Third-Party Sharing</h3>
-            <p class="body-text">If you connect a Pinterest account, we access the boards you choose to link, under Pinterest's own permissions. Sourcing Sleuth searches Etsy and eBay's public listings but doesn't share your personal information with them. Subscription payments are processed by Apple, not by Intly directly.</p>
+            <h3>5. Overseas storage and processing</h3>
+            <p class="body-text">Our providers store and process data in other countries, including Japan (Supabase, where our database and files are stored) and the United States (Railway, where our server runs). We take reasonable steps to make sure these providers protect your information. By using the Services you understand your information may be handled outside Australia.</p>
           </div>
 
           <div class="terms-section">
-            <h3>6. Where Your Data Is Stored</h3>
-            <p class="body-text">Your data is stored and processed using third-party infrastructure providers, which may be located, or process data, outside Australia. We take reasonable steps to ensure these providers handle your information securely.</p>
+            <h3>6. How long we keep it</h3>
+            <p class="body-text">We keep your information while your account is open. Content you delete is removed from the app. Auction lots you track are deleted automatically 3 days after they have passed. When you delete your account, we erase your stored files, your records and your login. We may keep usage and cost records that are not linked to you.</p>
           </div>
 
           <div class="terms-section">
-            <h3>7. Access, Correction and Deletion</h3>
-            <p class="body-text">You can access and correct most of your information directly in the app. You can delete your entire account and associated data at any time from Settings. To request a copy of what we hold about you, or if you believe any of it is inaccurate, email getintly@gmail.com.</p>
+            <h3>7. Your choices and rights</h3>
+            <p class="body-text">You can view and edit most of your information in the app. You can delete your account in Settings, Account Details, Delete Account. You can disconnect Pinterest and switch off notifications in your iPhone settings. To ask for a copy of your information, or to correct something you cannot fix in the app, email us at the address below.</p>
           </div>
 
           <div class="terms-section">
             <h3>8. Security</h3>
-            <p class="body-text">We take reasonable technical and organisational steps to protect your information from misuse, loss, or unauthorised access. No method of transmission or storage is completely secure, and we can't guarantee absolute security.</p>
+            <p class="body-text">We use measures such as encrypted connections and access controls to protect your information. No system is completely secure, so we cannot guarantee absolute security.</p>
           </div>
 
           <div class="terms-section">
-            <h3>9. Complaints</h3>
-            <p class="body-text">If you have a concern about how we've handled your personal information, email getintly@gmail.com and we'll respond as soon as we can.</p>
+            <h3>9. Children</h3>
+            <p class="body-text">Intly is for people aged 16 and over. If you believe someone under 16 has an account, contact us and we will delete it.</p>
           </div>
 
-          <div class="terms-section" style="margin-bottom:0">
-            <h3>10. Changes to This Policy</h3>
-            <p class="body-text" style="margin-bottom:0">We may update this policy from time to time. Continuing to use Intly after a change means you accept the update.</p>
+          <div class="terms-section">
+            <h3>10. Complaints</h3>
+            <p class="body-text">Email us your concern and we will reply within 14 days. If you are not satisfied, you can contact the Office of the Australian Information Commissioner (oaic.gov.au).</p>
           </div>
 
-          <div class="legal-note">
-            As with the Terms, this is a solid starting draft, not a final legal document — worth a professional review before treating it as complete, particularly the overseas data transfer and AI-processing disclosures.
+          <div class="terms-section">
+            <h3>11. Changes to this policy</h3>
+            <p class="body-text">We may update this policy. We will show the new effective date and, for material changes, tell you by email and on our Instagram account (@intly.app).</p>
           </div>
+
+          <div class="terms-section">
+            <h3>12. Contact</h3>
+            <p class="body-text">William Rose Gallery Pty. Ltd. (ABN 20 690 412 287), Victoria, Australia. Email: info@intly.app.</p>
+          </div>
+
 
         </div>
       </div>
