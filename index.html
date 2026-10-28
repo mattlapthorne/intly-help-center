@@ -173,7 +173,7 @@
 
     <!-- GETTING STARTED -->
     <div class="row">
-      <button class="row-btn active" onclick="toggle(this)">
+      <button class="row-btn active" aria-expanded="true" onclick="toggle(this)">
         Getting Started
         <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -187,7 +187,7 @@
 
     <!-- PRICING -->
     <div class="row">
-      <button class="row-btn" onclick="toggle(this)">
+      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
         Pricing
         <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -210,8 +210,8 @@
     </div>
 
     <!-- TERMS & CONDITIONS -->
-    <div class="row">
-      <button class="row-btn" onclick="toggle(this)">
+    <div class="row" id="terms">
+      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
         Terms &amp; Conditions
         <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -321,8 +321,8 @@
     </div>
 
     <!-- PRIVACY POLICY -->
-    <div class="row">
-      <button class="row-btn" onclick="toggle(this)">
+    <div class="row" id="privacy">
+      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
         Privacy Policy
         <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -401,7 +401,7 @@
 
     <!-- CONTACT -->
     <div class="row">
-      <button class="row-btn" onclick="toggle(this)">
+      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
         Contact
         <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -419,6 +419,13 @@
 </div>
 
 <script>
+function syncAria() {
+  document.querySelectorAll('.row').forEach(row => {
+    const open = row.querySelector('.panel').classList.contains('open');
+    row.querySelector('.row-btn').setAttribute('aria-expanded', String(open));
+  });
+}
+
 function toggle(btn) {
   const row = btn.closest('.row');
   const panel = row.querySelector('.panel');
@@ -431,7 +438,40 @@ function toggle(btn) {
     panel.classList.add('open');
     btn.classList.add('active');
   }
+  syncAria();
 }
+
+// #terms and #privacy open their dropdown and scroll to it, on load and when the hash changes.
+// The panels switch with no animation so the scroll position is exact, like a normal anchor jump.
+function openFromHash(onLoad) {
+  const id = location.hash.slice(1).toLowerCase();
+  if (id !== 'terms' && id !== 'privacy') return;
+  const row = document.getElementById(id);
+  if (!row) return;
+  const panels = document.querySelectorAll('.panel');
+
+  panels.forEach(p => { p.style.transition = 'none'; });
+  panels.forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.row-btn').forEach(b => b.classList.remove('active'));
+  row.querySelector('.panel').classList.add('open');
+  row.querySelector('.row-btn').classList.add('active');
+  syncAria();
+
+  void document.body.offsetHeight;
+  panels.forEach(p => { p.style.transition = ''; });
+  row.scrollIntoView();
+
+  // Web fonts change the heights above the row, so re-align once they load (unless the visitor has scrolled).
+  if (onLoad && document.fonts && document.fonts.ready) {
+    let moved = false;
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(ev =>
+      window.addEventListener(ev, () => { moved = true; }, { once: true, passive: true }));
+    document.fonts.ready.then(() => { if (!moved) row.scrollIntoView(); });
+  }
+}
+
+window.addEventListener('hashchange', () => openFromHash(false));
+openFromHash(true);
 </script>
 </body>
 </html>
