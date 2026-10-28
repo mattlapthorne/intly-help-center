@@ -61,7 +61,7 @@
     overflow: hidden;
     transition: max-height 420ms cubic-bezier(0.22,1,0.36,1);
   }
-  .panel.open { max-height: 3000px; }
+  .panel.open { max-height: none; }
   .panel-inner { padding: 0 15px 18px; }
   p.body-text {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -426,16 +426,37 @@ function syncAria() {
   });
 }
 
+// Panels animate max-height between 0 and the content's real height, then sit at
+// max-height: none once open so they are never clipped (fonts loading, resizing, etc).
+function openPanel(panel, animate) {
+  panel.classList.add('open');
+  if (!animate) { panel.style.maxHeight = ''; return; }
+  panel.style.maxHeight = panel.scrollHeight + 'px';
+  const settle = () => { if (panel.classList.contains('open')) panel.style.maxHeight = ''; };
+  panel.addEventListener('transitionend', e => { if (e.target === panel && e.propertyName === 'max-height') settle(); }, { once: true });
+  setTimeout(settle, 600);
+}
+
+function closePanel(panel, animate) {
+  if (!panel.classList.contains('open')) return;
+  if (animate) {
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+    void panel.offsetHeight;
+  }
+  panel.classList.remove('open');
+  panel.style.maxHeight = '';
+}
+
 function toggle(btn) {
   const row = btn.closest('.row');
   const panel = row.querySelector('.panel');
   const wasOpen = panel.classList.contains('open');
 
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.panel').forEach(p => closePanel(p, true));
   document.querySelectorAll('.row-btn').forEach(b => b.classList.remove('active'));
 
   if (!wasOpen) {
-    panel.classList.add('open');
+    openPanel(panel, true);
     btn.classList.add('active');
   }
   syncAria();
@@ -451,9 +472,9 @@ function openFromHash(onLoad) {
   const panels = document.querySelectorAll('.panel');
 
   panels.forEach(p => { p.style.transition = 'none'; });
-  panels.forEach(p => p.classList.remove('open'));
+  panels.forEach(p => closePanel(p, false));
   document.querySelectorAll('.row-btn').forEach(b => b.classList.remove('active'));
-  row.querySelector('.panel').classList.add('open');
+  openPanel(row.querySelector('.panel'), false);
   row.querySelector('.row-btn').classList.add('active');
   syncAria();
 
