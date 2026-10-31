@@ -4,9 +4,35 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Intly Help Center</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Poppins is self-hosted (Latin subset, only the weights used below). 300 is the accordion headers, so it loads first. -->
+<link rel="preload" href="assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('assets/fonts/poppins-latin-300-normal.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('assets/fonts/poppins-latin-400-normal.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('assets/fonts/poppins-latin-600-normal.woff2') format('woff2');
+  }
+  :root {
+    --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* #8C8C8C was 3.4:1 on white; #737373 is 4.7:1, which passes WCAG AA for small text. */
+    --muted: #737373;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: #FFFFFF;
@@ -20,11 +46,12 @@
   header { text-align: center; margin-bottom: 20px; }
   .logo-img { height: 36px; margin-bottom: 20px; }
   .eyebrow {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins);
     font-size: 11px;
+    font-weight: 400;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #8C8C8C;
+    color: var(--muted);
   }
   .card {
     border-radius: 4px;
@@ -46,7 +73,7 @@
     border: none;
     cursor: pointer;
     text-align: left;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins);
     font-size: 11.5px;
     font-weight: 300;
     letter-spacing: 2px;
@@ -54,14 +81,33 @@
     color: #1A1A1A;
   }
   .row-btn.active { color: #3D1E0F; }
+  /* The h2 only gives the accordion headers their place in the outline; the button carries the look. */
+  .row-heading { font: inherit; }
+  .row-btn:focus-visible,
+  .panel-inner a:focus-visible,
+  .contact-btn:focus-visible {
+    outline: 2px solid #1A1A1A;
+    outline-offset: -2px;
+  }
+  .contact-btn:focus-visible { outline-offset: 2px; }
   .chev { transition: transform 320ms cubic-bezier(0.22,1,0.36,1); flex-shrink: 0; }
   .row-btn.active .chev { transform: rotate(180deg); }
+  /* Closed panels are also visibility: hidden so their links can't be tabbed to or read out.
+     The visibility switch waits for the close animation to finish. */
   .panel {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 420ms cubic-bezier(0.22,1,0.36,1);
+    visibility: hidden;
+    transition: max-height 420ms cubic-bezier(0.22,1,0.36,1), visibility 0s linear 420ms;
   }
-  .panel.open { max-height: none; }
+  .panel.open {
+    max-height: none;
+    visibility: visible;
+    transition: max-height 420ms cubic-bezier(0.22,1,0.36,1), visibility 0s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chev, .panel, .panel.open { transition: none; }
+  }
   .panel-inner { padding: 0 15px 18px; }
   p.body-text {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -78,12 +124,12 @@
     color: #1A1A1A;
   }
   .price-table th {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins);
     font-size: 9px;
     font-weight: 400;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #8C8C8C;
+    color: var(--muted);
     text-align: left;
     padding: 0 8px 8px 0;
     border-bottom: 1px solid #E5E5E5;
@@ -106,7 +152,7 @@
     margin-bottom: 12px;
   }
   .body-list li { margin-bottom: 4px; }
-  p.effective { color: #8C8C8C; }
+  p.effective { color: var(--muted); }
   /* Provider table is too wide for a phone, so each provider stacks as its own block */
   .provider-table, .provider-table tbody { display: block; margin-bottom: 12px; }
   .provider-table thead { display: none; }
@@ -115,12 +161,12 @@
   .provider-table tr:last-child { border-bottom: none; padding-bottom: 0; }
   .provider-table td { display: block; padding: 0 !important; border: none; white-space: normal !important; }
   .provider-table td:first-child { margin-bottom: 3px; }
-  .provider-table td:nth-child(2)::before { content: "What it does: "; color: #8C8C8C; }
-  .provider-table td:nth-child(3)::before { content: "What it receives: "; color: #8C8C8C; }
+  .provider-table td:nth-child(2)::before { content: "What it does: "; color: var(--muted); }
+  .provider-table td:nth-child(3)::before { content: "What it receives: "; color: var(--muted); }
   .panel-inner a { color: #1A1A1A; word-break: break-all; }
   .terms-section { margin-bottom: 12px; }
   .terms-section h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins);
     font-size: 11px;
     font-weight: 600;
     color: #1A1A1A;
@@ -148,7 +194,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 10px;
     line-height: 1.5;
-    color: #8C8C8C;
+    color: var(--muted);
     margin-top: 14px;
     padding-top: 10px;
     border-top: 1px solid #E5E5E5;
@@ -157,7 +203,7 @@
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 9px;
-    color: #8C8C8C;
+    color: var(--muted);
     margin-top: 18px;
   }
 </style>
@@ -166,18 +212,20 @@
 <div class="wrap">
   <header>
     <img class="logo-img" src="assets/intly-logo.svg" alt="Intly" />
-    <div class="eyebrow">Help Center</div>
+    <h1 class="eyebrow">Help Center</h1>
   </header>
 
   <div class="card">
 
     <!-- GETTING STARTED -->
     <div class="row">
-      <button class="row-btn active" aria-expanded="true" onclick="toggle(this)">
-        Getting Started
-        <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="panel open">
+      <h2 class="row-heading">
+        <button type="button" class="row-btn active" id="getting-started-btn" aria-expanded="true" aria-controls="getting-started-panel" onclick="toggle(this)">
+          Getting Started
+          <svg class="chev" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </h2>
+      <div class="panel open" id="getting-started-panel" role="region" aria-labelledby="getting-started-btn">
         <div class="panel-inner">
           <p class="body-text">Intly is a toolkit for collectors, curators and design lovers.<br>Source furniture and objects across trusted design brands, save what you love to a room's Wishlist, build moodboards for inspiration, and see how a piece might actually look in your space before it arrives.</p>
           <p class="body-text" style="margin-bottom:0">Refer to the instructional videos on our homepage.</p>
@@ -187,11 +235,13 @@
 
     <!-- PRICING -->
     <div class="row">
-      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
-        Pricing
-        <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="panel">
+      <h2 class="row-heading">
+        <button type="button" class="row-btn" id="pricing-btn" aria-expanded="false" aria-controls="pricing-panel" onclick="toggle(this)">
+          Pricing
+          <svg class="chev" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </h2>
+      <div class="panel" id="pricing-panel" role="region" aria-labelledby="pricing-btn">
         <div class="panel-inner">
           <table class="price-table">
             <thead>
@@ -211,11 +261,13 @@
 
     <!-- TERMS & CONDITIONS -->
     <div class="row" id="terms">
-      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
-        Terms &amp; Conditions
-        <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="panel">
+      <h2 class="row-heading">
+        <button type="button" class="row-btn" id="terms-btn" aria-expanded="false" aria-controls="terms-panel" onclick="toggle(this)">
+          Terms &amp; Conditions
+          <svg class="chev" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </h2>
+      <div class="panel" id="terms-panel" role="region" aria-labelledby="terms-btn">
         <div class="panel-inner">
 
           <p class="body-text effective">Effective date: 28 October 2026</p>
@@ -322,11 +374,13 @@
 
     <!-- PRIVACY POLICY -->
     <div class="row" id="privacy">
-      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
-        Privacy Policy
-        <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="panel">
+      <h2 class="row-heading">
+        <button type="button" class="row-btn" id="privacy-btn" aria-expanded="false" aria-controls="privacy-panel" onclick="toggle(this)">
+          Privacy Policy
+          <svg class="chev" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </h2>
+      <div class="panel" id="privacy-panel" role="region" aria-labelledby="privacy-btn">
         <div class="panel-inner">
 
           <p class="body-text effective">Effective date: 28 October 2026</p>
@@ -401,11 +455,13 @@
 
     <!-- CONTACT -->
     <div class="row">
-      <button class="row-btn" aria-expanded="false" onclick="toggle(this)">
-        Contact
-        <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="panel">
+      <h2 class="row-heading">
+        <button type="button" class="row-btn" id="contact-btn" aria-expanded="false" aria-controls="contact-panel" onclick="toggle(this)">
+          Contact
+          <svg class="chev" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#8C8C8C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </h2>
+      <div class="panel" id="contact-panel" role="region" aria-labelledby="contact-btn">
         <div class="panel-inner">
           <p class="body-text">Something not working, or just want to say hi? We read every message.</p>
           <a href="mailto:info@intly.app" class="contact-btn"><span>Contact Support</span></a>
@@ -447,16 +503,20 @@ function closePanel(panel, animate) {
   panel.style.maxHeight = '';
 }
 
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// Buttons give Enter and Space for free; aria-controls points each one at its panel.
 function toggle(btn) {
   const row = btn.closest('.row');
   const panel = row.querySelector('.panel');
   const wasOpen = panel.classList.contains('open');
+  const animate = !reduceMotion.matches;
 
-  document.querySelectorAll('.panel').forEach(p => closePanel(p, true));
+  document.querySelectorAll('.panel').forEach(p => closePanel(p, animate));
   document.querySelectorAll('.row-btn').forEach(b => b.classList.remove('active'));
 
   if (!wasOpen) {
-    openPanel(panel, true);
+    openPanel(panel, animate);
     btn.classList.add('active');
   }
   syncAria();
